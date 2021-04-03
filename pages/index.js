@@ -109,7 +109,7 @@ export default function Home() {
             </div>
 
             <footer className={styles.footer}>
-               <p>Built with 💚, with Next.Js</p>
+               <p>Built with 💚 with Next.Js</p>
 
                <a
                   href="https://twitter.com/calon_jenazah__"
