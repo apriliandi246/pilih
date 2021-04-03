@@ -7,6 +7,7 @@ export default function SignInForm() {
             <div className={styles.input}>
                <label htmlFor="email">Email *</label>
                <input
+                  required
                   id="email"
                   type="email"
                   autoComplete="off"
@@ -17,6 +18,7 @@ export default function SignInForm() {
             <div className={styles.input}>
                <label htmlFor="password">Password *</label>
                <input
+                  required
                   id="password"
                   type="password"
                   autoComplete="off"

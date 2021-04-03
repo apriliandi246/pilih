@@ -7,6 +7,7 @@ export default function VoteInput() {
             <div className={styles.input}>
                <label htmlFor="voteid">Vote ID *</label>
                <input
+                  required
                   id="voteid"
                   type="text"
                   placeholder="vote id"
