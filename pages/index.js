@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { useState } from "react";
-import SignInForm from "../components/SignInForm";
+import Vote from "../components/Vote";
 import LogInForm from "../components/LogInForm";
 import VoteInput from "../components/VoteInput";
+import SignInForm from "../components/SignInForm";
 import styles from "../styles/home.module.css";
 
 export default function Home() {
@@ -51,7 +52,6 @@ export default function Home() {
          <div className={styles.container}>
             <div className={styles.header}>
                <h1 className={styles.title}>PILIH</h1>
-               <h2 className={styles.emoji}>☝️</h2>
 
                <div className={styles.auth}>
                   <button onClick={() => onClickButton("signin")}>
@@ -64,8 +64,8 @@ export default function Home() {
                </div>
             </div>
 
-            {statusSignInForm === true && <SignInForm />}
             {statusLogInForm === true && <LogInForm />}
+            {statusSignInForm === true && <SignInForm />}
             {statusVoteInputForm === true && <VoteInput />}
 
             <div className={styles.about}>
@@ -95,8 +95,8 @@ export default function Home() {
                >
                   <h1>🔐</h1>
                   <p>
-                     If you want to voting, you should have unique random id
-                     from who make the vote
+                     If you want to voting, you should have unique id from who
+                     make the vote
                   </p>
                </div>
 

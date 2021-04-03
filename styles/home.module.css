@@ -1,10 +1,10 @@
 .container {
    width: 88%;
-   margin: auto;
    display: flex;
    align-items: center;
    flex-direction: column;
    justify-content: center;
+   margin: 30px auto 50px auto;
 }
 
 .header {
@@ -20,7 +20,6 @@
 
 .title {
    color: #532e2e;
-   margin-top: 30px;
    font-size: 1.5rem;
    font-weight: bold;
    letter-spacing: 5px;
@@ -35,6 +34,7 @@
 .auth {
    gap: 40px;
    display: flex;
+   margin-top: 40px;
    align-items: center;
    flex-direction: column;
    justify-content: center;
@@ -56,12 +56,6 @@
 
 .auth button:focus {
    box-shadow: 0 0 0.6px 2.8px #532e2eab;
-}
-
-@media screen and (min-width: 650px) {
-   .auth {
-      flex-direction: row;
-   }
 }
 
 .about {
@@ -111,7 +105,6 @@
    width: 100%;
    display: flex;
    margin-top: 70px;
-   margin-bottom: 40px;
    align-items: center;
    justify-content: space-between;
 }
@@ -136,6 +129,12 @@
 
 .footer a:focus {
    box-shadow: 0 0 0.6px 2.8px #532e2eab;
+}
+
+@media screen and (min-width: 650px) {
+   .auth {
+      flex-direction: row;
+   }
 }
 
 @media screen and (min-width: 880px) {
