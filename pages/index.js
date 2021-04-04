@@ -1,44 +1,30 @@
 import Head from "next/head";
 import { useState } from "react";
-import Vote from "../components/Vote";
-import LogInForm from "../components/LogInForm";
-import VoteInput from "../components/VoteInput";
-import SignInForm from "../components/SignInForm";
+import Alert from "../components/Alert";
+import VoteForm from "../components/VoteForm";
+import VoteInputId from "../components/VoteInputId";
 import styles from "../styles/home.module.css";
 
 export default function Home() {
-   const [statusLogInForm, setStatusLogInForm] = useState(false);
-   const [statusSignInForm, setStatusSignInForm] = useState(false);
-   const [statusVoteInputForm, setStatusVoteInputInForm] = useState(false);
+   const [statusVoteForm, setStatusVoteForm] = useState(false);
+   const [statusInputId, setStatusInputId] = useState(false);
 
-   function onClickButton(form) {
-      if (form === "signin") {
-         if (statusSignInForm === true) {
-            setStatusSignInForm(false);
+   function onClickButton(typeForm) {
+      if (typeForm === "signin") {
+         if (statusVoteForm === true) {
+            setStatusVoteForm(false);
          } else {
-            setStatusSignInForm(true);
-            setStatusLogInForm(false);
-            setStatusVoteInputInForm(false);
+            setStatusVoteForm(true);
+            setStatusInputId(false);
          }
       }
 
-      if (form === "login") {
-         if (statusLogInForm === true) {
-            setStatusLogInForm(false);
+      if (typeForm === "vote") {
+         if (statusInputId === true) {
+            setStatusInputId(false);
          } else {
-            setStatusLogInForm(true);
-            setStatusSignInForm(false);
-            setStatusVoteInputInForm(false);
-         }
-      }
-
-      if (form === "vote") {
-         if (statusVoteInputForm === true) {
-            setStatusVoteInputInForm(false);
-         } else {
-            setStatusLogInForm(false);
-            setStatusSignInForm(false);
-            setStatusVoteInputInForm(true);
+            setStatusVoteForm(false);
+            setStatusInputId(true);
          }
       }
    }
@@ -55,18 +41,16 @@ export default function Home() {
 
                <div className={styles.auth}>
                   <button onClick={() => onClickButton("signin")}>
-                     Sign In
+                     Create vote
                   </button>
-                  <button onClick={() => onClickButton("login")}>Log In</button>
                   <button onClick={() => onClickButton("vote")}>
                      Join vote
                   </button>
                </div>
             </div>
 
-            {statusLogInForm === true && <LogInForm />}
-            {statusSignInForm === true && <SignInForm />}
-            {statusVoteInputForm === true && <VoteInput />}
+            {statusVoteForm === true && <VoteForm />}
+            {statusInputId === true && <VoteInputId />}
 
             <div className={styles.about}>
                <h1 className={styles.about_title}>

@@ -5,7 +5,7 @@
    flex-direction: column;
    justify-content: center;
    margin: 70px auto 0 auto;
-   animation: modalAnimation 0.2s;
+   animation: scaleAnimation 0.2s;
 }
 
 .title {
@@ -25,10 +25,11 @@
 
 .input label {
    font-size: 1rem;
-   margin-bottom: 10px;
+   margin-bottom: 15px;
 }
 
-.input input {
+.input input,
+.input textarea {
    outline: none;
    padding: 0.5rem;
    font-size: 1rem;
@@ -37,6 +38,11 @@
    margin-bottom: 25px;
    border: 1px solid #532e2e;
    transition: box-shadow 0.1s linear;
+}
+
+.input textarea {
+   resize: none;
+   white-space: pre-line;
 }
 
 .submit_btn {
@@ -53,8 +59,7 @@
    transition: background-color 0.1s, box-shadow 0.1s linear;
 }
 
-.submit_btn:hover,
-.login_link:hover {
+.submit_btn:hover {
    background-color: #f1ecec;
 }
 
@@ -63,11 +68,12 @@
    box-shadow: 0 0 0.6px 2.8px #532e2eab;
 }
 
-.input input:focus {
+.input input:focus,
+.input textarea:focus {
    box-shadow: 0 0 0.6px 2.8px #532e2eab;
 }
 
-@keyframes modalAnimation {
+@keyframes scaleAnimation {
    from {
       opacity: 0;
       transform: scale(1.2);
@@ -81,23 +87,13 @@
 
 @media screen and (min-width: 600px) {
    .container {
-      width: 67%;
+      width: 85%;
    }
 }
 
 @media screen and (min-width: 760px) {
-   .container {
-      width: 57%;
-   }
-
    .input input {
       padding: 0.5rem;
-   }
-}
-
-@media screen and (min-width: 910px) {
-   .container {
-      width: 50%;
    }
 }
 
