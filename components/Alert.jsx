@@ -1,10 +1,15 @@
 import styles from "../styles/Alert.module.css";
 
-export default function Alert({ message }) {
+export default function Alert({ onCloseAlert, message }) {
    return (
-      <div class={styles.alert}>
-         <p class={styles.alert__message}>Vote created</p>
-         <span class={styles.alert__close_button}>×</span>
+      <div className={styles.alert}>
+         <p className={styles.alert__message}>{message}</p>
+         <span
+            className={styles.alert__close_button}
+            onClick={() => onCloseAlert(false)}
+         >
+            ×
+         </span>
       </div>
    );
 }

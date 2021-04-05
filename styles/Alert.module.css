@@ -2,10 +2,10 @@
    width: 100%;
    display: flex;
    padding: 10px;
-   margin-top: 70px;
+   margin-top: 10px;
    border-radius: 3px;
+   margin-bottom: 50px;
    align-items: center;
-   margin-bottom: -20px;
    box-sizing: border-box;
    font-family: monospace;
    border: 1px solid #5f5858;
@@ -31,12 +31,6 @@
 
 .alert__close-button:hover {
    transform: scale(1.2);
-}
-
-@media screen and (min-width: 600px) {
-   .alert {
-      width: 85%;
-   }
 }
 
 @media screen and (min-width: 760px) {

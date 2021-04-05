@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { useState } from "react";
-import Alert from "../components/Alert";
 import VoteForm from "../components/VoteForm";
 import VoteInputId from "../components/VoteInputId";
 import styles from "../styles/home.module.css";
 
 export default function Home() {
-   const [statusVoteForm, setStatusVoteForm] = useState(false);
+   const [isSubmit, setIsSubmit] = useState(false);
    const [statusInputId, setStatusInputId] = useState(false);
+   const [statusVoteForm, setStatusVoteForm] = useState(false);
 
    function onClickButton(typeForm) {
       if (typeForm === "signin") {
@@ -40,17 +40,28 @@ export default function Home() {
                <h1 className={styles.title}>PILIH</h1>
 
                <div className={styles.auth}>
-                  <button onClick={() => onClickButton("signin")}>
+                  <button
+                     disabled={isSubmit === true}
+                     onClick={() => onClickButton("signin")}
+                  >
                      Create vote
                   </button>
-                  <button onClick={() => onClickButton("vote")}>
+                  <button
+                     disabled={isSubmit === true}
+                     onClick={() => onClickButton("vote")}
+                  >
                      Join vote
                   </button>
                </div>
             </div>
 
-            {statusVoteForm === true && <VoteForm />}
-            {statusInputId === true && <VoteInputId />}
+            {statusVoteForm === true && (
+               <VoteForm isSubmit={isSubmit} onSubmit={setIsSubmit} />
+            )}
+
+            {statusInputId === true && (
+               <VoteInputId isSubmit={isSubmit} onSubmit={setIsSubmit} />
+            )}
 
             <div className={styles.about}>
                <h1 className={styles.about_title}>
