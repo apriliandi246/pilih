@@ -11,11 +11,11 @@ export default function VotePage({ id }) {
    return (
       <>
          <Head>
-            <title>Let's voting </title>
+            <title>Let's voting</title>
          </Head>
 
          <div className={styles.container}>
-            <h1 className={styles.total_votes}>Let's voting {id}</h1>
+            <h1 className={styles.total_votes}>Vote title</h1>
 
             <div className={styles.subject_desc}>
                <h2 className={styles.subject_title}>Subject 1</h2>
