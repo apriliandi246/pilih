@@ -20,12 +20,10 @@ export default function VoteInput({ isSubmit, onSubmit }) {
          .get()
          .then((querySnapshot) => {
             if (querySnapshot.exists === true) {
-               onSubmit(false);
-               router.push(`/vote/${idVote}`);
+               router.push(`/vote/${idVote.trim()}`);
             }
 
             if (querySnapshot.exists === false) {
-               onSubmit(false);
                setIsNotif(true);
             }
          })

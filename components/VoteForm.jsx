@@ -4,6 +4,7 @@ import Alert from "./Alert";
 import styles from "../styles/form.module.css";
 
 export default function SignInForm({ isSubmit, onSubmit }) {
+   const [idVote, setIdVote] = useState("");
    const [maxVote, setMaxVote] = useState("");
    const [fullName, setFullName] = useState("");
    const [voteDesc, setVoteDesc] = useState("");
@@ -20,7 +21,6 @@ export default function SignInForm({ isSubmit, onSubmit }) {
          .firestore()
          .collection("votes")
          .add({
-            maxVote,
             fullName,
             voteDesc,
             voteTitle,
@@ -30,28 +30,34 @@ export default function SignInForm({ isSubmit, onSubmit }) {
             createdAt: new Date(),
             totalVotesSubjectOne: 0,
             totalVotesSubjectTwo: 0,
+            maxVote: parseInt(maxVote),
          })
-         .then(() => {
+         .then((data) => {
             setMaxVote(0);
             setFullName("");
             setVoteDesc("");
             onSubmit(false);
             setVoteTitle("");
             setIsNotif(true);
+            setIdVote(data.id);
             setSubjectOneName("");
             setSubjectTwoName("");
+            scrollToTop();
          });
    }
 
    return (
       <div className={styles.container}>
          {isNotif === true && (
-            <Alert onCloseAlert={setIsNotif} message="Vote created" />
+            <Alert
+               onCloseAlert={setIsNotif}
+               message={`Your ID vote : ${idVote}`}
+            />
          )}
 
          <form onSubmit={submitForm}>
             <div className={styles.input}>
-               <label htmlFor="yourName">Full name *</label>
+               <label htmlFor="yourName">Your name *</label>
                <input
                   required
                   type="text"
@@ -144,4 +150,10 @@ export default function SignInForm({ isSubmit, onSubmit }) {
          </form>
       </div>
    );
+}
+
+function scrollToTop() {
+   setTimeout(() => {
+      window.scrollTo(99999, 0);
+   }, 0);
 }

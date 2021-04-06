@@ -9,10 +9,10 @@
    background: #f2efe4;
 }
 ::-webkit-scrollbar-thumb {
-   background-color: rgba(95, 88, 88, 0.8);
+   background-color: rgba(95, 88, 88, 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
-   background-color: rgba(95, 88, 88, 0.9);
+   background-color: rgba(95, 88, 88, 0.8);
 }
 a,
 abbr,
