@@ -27,9 +27,9 @@ export default function SignInForm({ isSubmit, onSubmit }) {
             subjectOneName,
             subjectTwoName,
             peoplesVoted: [],
-            createdAt: new Date(),
             totalVotesSubjectOne: 0,
             totalVotesSubjectTwo: 0,
+            createdAt: `${new Date()}`,
             maxVote: parseInt(maxVote),
          })
          .then((data) => {
@@ -48,12 +48,7 @@ export default function SignInForm({ isSubmit, onSubmit }) {
 
    return (
       <div className={styles.container}>
-         {isNotif === true && (
-            <Alert
-               onCloseAlert={setIsNotif}
-               message={`Your ID vote : ${idVote}`}
-            />
-         )}
+         {isNotif === true && <Alert voteID={idVote} />}
 
          <form onSubmit={submitForm}>
             <div className={styles.input}>
