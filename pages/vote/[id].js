@@ -34,7 +34,7 @@ export default function VotePage({ idVote }) {
 
    function scrollToBottom() {
       setTimeout(() => {
-         window.scrollTo(0, 99999);
+         window.scrollTo(0, 500);
       }, 0);
    }
 
@@ -150,6 +150,7 @@ export default function VotePage({ idVote }) {
                         Vote description
                      </summary>
                      <p>{vote.voteDesc}</p>
+                     <p>by {vote.fullName}</p>
                   </details>
                </>
             )}

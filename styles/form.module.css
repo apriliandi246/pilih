@@ -99,15 +99,14 @@
    .input input {
       padding: 0.5rem;
    }
-}
 
-@media screen and (min-width: 1200px) {
    .input label {
       font-size: 0.9rem;
       margin-bottom: 13px;
    }
 
-   .input input {
+   .input input,
+   .input textarea {
       font-size: 0.9rem;
       margin-bottom: 30px;
    }

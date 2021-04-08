@@ -29,7 +29,7 @@ export default function SignInForm({ isSubmit, onSubmit }) {
             peoplesVoted: [],
             totalVotesSubjectOne: 0,
             totalVotesSubjectTwo: 0,
-            createdAt: `${new Date()}`,
+            createdAt: `${Date.now()}`,
             maxVote: parseInt(maxVote),
          })
          .then((data) => {
