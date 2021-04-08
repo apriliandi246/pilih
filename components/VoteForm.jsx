@@ -5,7 +5,7 @@ import styles from "../styles/form.module.css";
 
 export default function SignInForm({ isSubmit, onSubmit }) {
    const [idVote, setIdVote] = useState("");
-   const [maxVote, setMaxVote] = useState("");
+   const [maxVote, setMaxVote] = useState(0);
    const [fullName, setFullName] = useState("");
    const [voteDesc, setVoteDesc] = useState("");
    const [isNotif, setIsNotif] = useState(false);
@@ -29,7 +29,7 @@ export default function SignInForm({ isSubmit, onSubmit }) {
             peoplesVoted: [],
             totalVotesSubjectOne: 0,
             totalVotesSubjectTwo: 0,
-            createdAt: `${Date.now()}`,
+            createdAt: `${new Date()}`,
             maxVote: parseInt(maxVote),
          })
          .then((data) => {
@@ -84,7 +84,7 @@ export default function SignInForm({ isSubmit, onSubmit }) {
             <div className={styles.input}>
                <label htmlFor="maxVote">Maximum votes</label>
                <input
-                  min="1"
+                  min="0"
                   id="maxVote"
                   type="number"
                   value={maxVote}

@@ -122,7 +122,6 @@
    text-decoration: none;
    border: 1px solid #532e2e;
    transition: box-shadow 0.2s;
-   background-color: transparent;
 }
 
 .footer a:focus {

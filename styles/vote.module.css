@@ -1,10 +1,31 @@
 .container {
    width: 90%;
-   margin: 130px auto 50px auto;
+   margin: 120px auto 50px auto;
    animation: scaleAnimation 0.2s;
 }
 
-.total_votes {
+.to_home {
+   top: 25px;
+   left: 35px;
+   padding: 10px;
+   outline: none;
+   color: #532e2e;
+   cursor: pointer;
+   font-size: 1rem;
+   border-radius: 4px;
+   position: absolute;
+   letter-spacing: 1px;
+   display: inline-block;
+   text-decoration: none;
+   border: 1px solid #532e2e;
+   transition: box-shadow 0.2s;
+}
+
+.to_home:focus {
+   box-shadow: 0 0 0.6px 2.8px #532e2eab;
+}
+
+.title_vote {
    font-size: 1.5rem;
    text-align: center;
    margin-bottom: 3.1rem;
@@ -76,13 +97,20 @@
    cursor: pointer;
 }
 
-.subject_detail p {
+.desc {
    font-size: 1rem;
    margin-top: 16px;
    line-height: 23px;
    letter-spacing: 0.6px;
    margin-bottom: 40px;
    white-space: pre-line;
+}
+
+.voteBy,
+.date {
+   font-size: 1rem;
+   letter-spacing: 0.6px;
+   margin-bottom: 10px;
 }
 
 .subject_buttons button:hover {
@@ -129,6 +157,7 @@
       font-size: 0.9rem;
    }
 
+   .to_home,
    .subject_buttons button {
       font-size: 0.9rem;
    }

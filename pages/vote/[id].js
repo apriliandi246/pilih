@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Time from "../../util/date";
 import { useEffect, useState } from "react";
 import fire from "../../config/config";
 import styles from "../../styles/vote.module.css";
@@ -8,6 +9,7 @@ import styles_2 from "../../styles/notfound.module.css";
 export default function VotePage({ idVote }) {
    const [vote, setVote] = useState("");
    const [isLoading, setIsLoading] = useState(true);
+   const [isVoteMax, setIsVoteMax] = useState(false);
    const [isVoteExist, setIsVoteExist] = useState(false);
    const [percentSubjectOne, setPercentSubjectOne] = useState(0);
    const [percentSubjectTwo, setPercentSubjectTwo] = useState(0);
@@ -52,6 +54,15 @@ export default function VotePage({ idVote }) {
                vote.totalVotesSubjectTwo
          ) || 0
       );
+
+      if (vote.maxVote > 0) {
+         if (
+            vote.totalVotesSubjectOne === vote.maxVote ||
+            vote.totalVotesSubjectTwo === vote.maxVote
+         ) {
+            setIsVoteMax(true);
+         }
+      }
    }, [vote]);
 
    useEffect(() => {
@@ -65,6 +76,15 @@ export default function VotePage({ idVote }) {
                setVote(snap.data());
             } else {
                setIsVoteExist(false);
+            }
+
+            if (snap.data().maxVote > 0) {
+               if (
+                  snap.data().totalVotesSubjectOne === snap.data().maxVote ||
+                  snap.data().totalVotesSubjectTwo === snap.data().maxVote
+               ) {
+                  setIsVoteMax(true);
+               }
             }
 
             setIsLoading(false);
@@ -85,6 +105,10 @@ export default function VotePage({ idVote }) {
             <title>Let's voting</title>
          </Head>
 
+         <Link href="/">
+            <a className={styles.to_home}>Home</a>
+         </Link>
+
          <div className={styles.container}>
             {isVoteExist === false ? (
                <div className={styles_2.container}>
@@ -96,7 +120,7 @@ export default function VotePage({ idVote }) {
                </div>
             ) : (
                <>
-                  <h1 className={styles.total_votes}>{vote.voteTitle}</h1>
+                  <h1 className={styles.title_vote}>{vote.voteTitle}</h1>
 
                   <div className={styles.subject_desc}>
                      <h2 className={styles.subject_title}>
@@ -136,21 +160,24 @@ export default function VotePage({ idVote }) {
                      ></div>
                   </div>
 
-                  <div className={styles.subject_buttons}>
-                     <button onClick={() => votingSubjectOne()}>
-                        Voting {vote.subjectOneName}
-                     </button>
-                     <button onClick={() => votingSubjectTwo()}>
-                        Voting {vote.subjectTwoName}
-                     </button>
-                  </div>
+                  {isVoteMax === false && (
+                     <div className={styles.subject_buttons}>
+                        <button onClick={() => votingSubjectOne()}>
+                           Voting {vote.subjectOneName}
+                        </button>
+                        <button onClick={() => votingSubjectTwo()}>
+                           Voting {vote.subjectTwoName}
+                        </button>
+                     </div>
+                  )}
 
                   <details className={styles.subject_detail}>
-                     <summary onClick={scrollToBottom}>
-                        Vote description
-                     </summary>
-                     <p>{vote.voteDesc}</p>
-                     <p>by {vote.fullName}</p>
+                     <summary onClick={scrollToBottom}>Vote detail</summary>
+                     <p className={styles.desc}>{vote.voteDesc}</p>
+                     <p className={styles.voteBy}>by {vote.fullName}</p>
+                     <p className={styles.date}>
+                        {new Time(vote.createdAt).getNormalRt()}
+                     </p>
                   </details>
                </>
             )}

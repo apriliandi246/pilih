@@ -16,8 +16,8 @@ export default function Alert({ voteID }) {
    return (
       <div className={styles.alert}>
          <p className={styles.alert__message}>
-            Your vote ID <span style={{ marginLeft: "7px" }}>:</span>{" "}
-            <span style={{ marginLeft: "7px" }}>{voteID}</span>
+            Your vote ID <span style={{ marginLeft: "4px" }}>:</span>{" "}
+            <span style={{ marginLeft: "4px" }}>{voteID}</span>
          </p>
 
          <span className={styles.alert__close_button} onClick={clipBoardVoteId}>
