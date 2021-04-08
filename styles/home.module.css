@@ -4,7 +4,7 @@
    align-items: center;
    flex-direction: column;
    justify-content: center;
-   margin: 30px auto 26px auto;
+   margin: 30px auto 28px auto;
 }
 
 .header {
@@ -101,7 +101,7 @@
 .footer {
    width: 100%;
    display: flex;
-   margin-top: 50px;
+   margin-top: 2rem;
    align-items: center;
    justify-content: space-between;
 }
@@ -130,6 +130,10 @@
 @media screen and (min-width: 760px) {
    .container {
       margin-bottom: 40px;
+   }
+
+   .footer {
+      margin-top: 3.3rem;
    }
 }
 
