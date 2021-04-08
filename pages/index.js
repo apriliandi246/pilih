@@ -44,13 +44,13 @@ export default function Home() {
                      disabled={isSubmit === true}
                      onClick={() => onClickButton("signin")}
                   >
-                     Create vote
+                     Create voting
                   </button>
                   <button
                      disabled={isSubmit === true}
                      onClick={() => onClickButton("vote")}
                   >
-                     Join vote
+                     Join voting
                   </button>
                </div>
             </div>
@@ -73,21 +73,20 @@ export default function Home() {
                >
                   <h1>🤝</h1>
                   <p>
-                     Just web app to make a vote that you can use with your
-                     friend
+                     Just web app to create voting and plaing with your friends
                   </p>
                </div>
 
                <div className={styles.about_section}>
                   <h1>👌</h1>
-                  <p>Easy to use that's mean you just sign in</p>
+                  <p>Easy to use and you dont have to create an account</p>
                </div>
 
                <div className={styles.about_section}>
                   <h1>🔐</h1>
                   <p>
-                     If you want to voting, you should have unique id from who
-                     make the vote
+                     If you want make a voting you should have unique voting ID
+                     from who create the voting
                   </p>
                </div>
 

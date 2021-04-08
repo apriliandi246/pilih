@@ -40,7 +40,7 @@ export default function VoteInput({ isSubmit, onSubmit }) {
 
          <form onSubmit={submitForm}>
             <div className={styles.input}>
-               <label htmlFor="voteid">Vote ID *</label>
+               <label htmlFor="voteid">Voting ID *</label>
                <input
                   required
                   id="voteid"
@@ -48,7 +48,7 @@ export default function VoteInput({ isSubmit, onSubmit }) {
                   value={idVote}
                   autoComplete="off"
                   spellCheck="false"
-                  placeholder="vote id"
+                  placeholder="voting ID"
                   disabled={isSubmit === true}
                   onChange={(e) => setIdVote(e.target.value)}
                />

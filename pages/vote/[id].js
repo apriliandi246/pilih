@@ -173,7 +173,7 @@ export default function VotePage({ idVote }) {
                   )}
 
                   <details className={styles.subject_detail}>
-                     <summary onClick={scrollToBottom}>Vote detail</summary>
+                     <summary onClick={scrollToBottom}>Voting details</summary>
 
                      <p className={styles.desc}>{vote.voteDesc}</p>
                      <p className={styles.voteBy}>

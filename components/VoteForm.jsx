@@ -134,13 +134,13 @@ export default function SignInForm({ isSubmit, onSubmit }) {
                   spellCheck="false"
                   autoComplete="off"
                   disabled={isSubmit === true}
-                  placeholder="detail vote description"
+                  placeholder="voting description"
                   onChange={(e) => setVoteDesc(e.target.value)}
                ></textarea>
             </div>
 
             <button disabled={isSubmit === true} className={styles.submit_btn}>
-               {isSubmit === true ? "Loading" : "Create Vote"}
+               {isSubmit === true ? "Loading" : "Create"}
             </button>
          </form>
       </div>
