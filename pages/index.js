@@ -32,7 +32,7 @@ export default function Home() {
    return (
       <>
          <Head>
-            <title>Home</title>
+            <title>Pilih | Home</title>
          </Head>
 
          <div className={styles.container}>
@@ -78,16 +78,12 @@ export default function Home() {
                   </p>
                </div>
 
-               <div
-                  className={`${styles.about_sectionTwo} ${styles.about_section}`}
-               >
+               <div className={styles.about_section}>
                   <h1>👌</h1>
                   <p>Easy to use that's mean you just sign in</p>
                </div>
 
-               <div
-                  className={`${styles.about_sectionThree} ${styles.about_section}`}
-               >
+               <div className={styles.about_section}>
                   <h1>🔐</h1>
                   <p>
                      If you want to voting, you should have unique id from who
@@ -95,9 +91,7 @@ export default function Home() {
                   </p>
                </div>
 
-               <div
-                  className={`${styles.about_sectionFour} ${styles.about_section}`}
-               >
+               <div className={styles.about_section}>
                   <h1>👀</h1>
                   <p>Don't worry, I dont steal your data</p>
                </div>

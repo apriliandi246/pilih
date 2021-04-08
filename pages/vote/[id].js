@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import Time from "../../util/date";
 import { useEffect, useState } from "react";
+import Time from "../../util/date";
 import fire from "../../config/config";
+import Spinner from "../../components/Spinner";
 import styles from "../../styles/vote.module.css";
 import styles_2 from "../../styles/notfound.module.css";
 
@@ -87,16 +88,14 @@ export default function VotePage({ idVote }) {
                }
             }
 
-            setIsLoading(false);
+            setTimeout(() => {
+               setIsLoading(false);
+            }, 500);
          });
    }, []);
 
    if (isLoading === true) {
-      return (
-         <div className={styles_2.container} style={{ marginTop: "200px" }}>
-            <h1 className={styles.total_votes}>Loading....</h1>
-         </div>
-      );
+      return <Spinner />;
    }
 
    return (
@@ -105,9 +104,11 @@ export default function VotePage({ idVote }) {
             <title>Let's voting</title>
          </Head>
 
-         <Link href="/">
-            <a className={styles.to_home}>Home</a>
-         </Link>
+         <div className={styles.link_home}>
+            <Link href="/">
+               <a className={styles.to_home}>Home</a>
+            </Link>
+         </div>
 
          <div className={styles.container}>
             {isVoteExist === false ? (
@@ -163,19 +164,24 @@ export default function VotePage({ idVote }) {
                   {isVoteMax === false && (
                      <div className={styles.subject_buttons}>
                         <button onClick={() => votingSubjectOne()}>
-                           Voting {vote.subjectOneName}
+                           {vote.subjectOneName}
                         </button>
                         <button onClick={() => votingSubjectTwo()}>
-                           Voting {vote.subjectTwoName}
+                           {vote.subjectTwoName}
                         </button>
                      </div>
                   )}
 
                   <details className={styles.subject_detail}>
                      <summary onClick={scrollToBottom}>Vote detail</summary>
+
                      <p className={styles.desc}>{vote.voteDesc}</p>
-                     <p className={styles.voteBy}>by {vote.fullName}</p>
+                     <p className={styles.voteBy}>
+                        <span style={{ marginRight: "8px" }}>😀</span> Created
+                        by {vote.fullName}
+                     </p>
                      <p className={styles.date}>
+                        <span style={{ marginRight: "8px" }}>⏲</span>{" "}
                         {new Time(vote.createdAt).getNormalRt()}
                      </p>
                   </details>

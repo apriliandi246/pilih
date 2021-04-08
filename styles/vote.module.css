@@ -4,16 +4,19 @@
    animation: scaleAnimation 0.2s;
 }
 
+.link_home {
+   margin-top: 60px;
+   text-align: center;
+}
+
 .to_home {
-   top: 25px;
-   left: 35px;
    padding: 10px;
    outline: none;
    color: #532e2e;
    cursor: pointer;
    font-size: 1rem;
    border-radius: 4px;
-   position: absolute;
+   text-align: center;
    letter-spacing: 1px;
    display: inline-block;
    text-decoration: none;
@@ -62,7 +65,7 @@
    width: 180px;
    height: 100%;
    position: absolute;
-   background-color: rgb(83, 46, 46);
+   background-color: #532e2e;
    transition: width 0.2s ease-in-out;
    animation: loading 1s ease-in-out infinite;
 }
@@ -109,8 +112,8 @@
 .voteBy,
 .date {
    font-size: 1rem;
-   letter-spacing: 0.6px;
    margin-bottom: 10px;
+   letter-spacing: 0.6px;
 }
 
 .subject_buttons button:hover {
@@ -125,7 +128,7 @@
 @keyframes scaleAnimation {
    from {
       opacity: 0;
-      transform: scale(1.2);
+      transform: scale(1.1);
    }
 
    to {
@@ -160,6 +163,10 @@
    .to_home,
    .subject_buttons button {
       font-size: 0.9rem;
+   }
+
+   .voteBy {
+      margin-bottom: 6px;
    }
 }
 

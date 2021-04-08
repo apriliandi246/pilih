@@ -4,7 +4,7 @@
    align-items: center;
    flex-direction: column;
    justify-content: center;
-   margin: 30px auto 40px auto;
+   margin: 30px auto 26px auto;
 }
 
 .header {
@@ -71,7 +71,6 @@
    font-weight: bold;
    margin-bottom: 40px;
    letter-spacing: 1.1px;
-   font-family: monospace;
 }
 
 .about_section {
@@ -102,7 +101,7 @@
 .footer {
    width: 100%;
    display: flex;
-   margin-top: 60px;
+   margin-top: 50px;
    align-items: center;
    justify-content: space-between;
 }
@@ -126,6 +125,12 @@
 
 .footer a:focus {
    box-shadow: 0 0 0.6px 2.8px #532e2eab;
+}
+
+@media screen and (min-width: 760px) {
+   .container {
+      margin-bottom: 40px;
+   }
 }
 
 @media screen and (min-width: 880px) {

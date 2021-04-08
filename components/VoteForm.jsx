@@ -21,16 +21,16 @@ export default function SignInForm({ isSubmit, onSubmit }) {
          .firestore()
          .collection("votes")
          .add({
-            fullName,
-            voteDesc,
-            voteTitle,
-            subjectOneName,
-            subjectTwoName,
             peoplesVoted: [],
             totalVotesSubjectOne: 0,
             totalVotesSubjectTwo: 0,
             createdAt: `${new Date()}`,
             maxVote: parseInt(maxVote),
+            fullName: fullName.trim(),
+            voteDesc: voteDesc.trim(),
+            voteTitle: voteTitle.trim(),
+            subjectOneName: subjectOneName.trim(),
+            subjectTwoName: subjectTwoName.trim(),
          })
          .then((data) => {
             setMaxVote(0);
