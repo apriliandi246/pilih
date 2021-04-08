@@ -34,8 +34,10 @@
    padding: 0.6rem;
    font-size: 1rem;
    text-indent: 1px;
+   line-height: 23px;
    border-radius: 3px;
    margin-bottom: 25px;
+   letter-spacing: 0.5px;
    border: 1px solid #532e2e;
    transition: box-shadow 0.1s linear;
 }
@@ -109,6 +111,10 @@
    .input textarea {
       font-size: 0.9rem;
       margin-bottom: 30px;
+   }
+
+   .input textarea {
+      line-height: 26px;
    }
 
    .submit_btn,

@@ -104,13 +104,13 @@
    font-size: 1rem;
    margin-top: 16px;
    line-height: 23px;
-   letter-spacing: 0.6px;
    margin-bottom: 40px;
+   letter-spacing: 0.5px;
    white-space: pre-line;
 }
 
-.voteBy,
-.date {
+.date,
+.voteBy {
    font-size: 1rem;
    margin-bottom: 10px;
    letter-spacing: 0.6px;
