@@ -53,7 +53,7 @@ export default function SignInForm({ isSubmit, onSubmit }) {
 
          <form onSubmit={submitForm}>
             <div className={styles.input}>
-               <label htmlFor="yourName">Your name *</label>
+               <label htmlFor="yourName">Who is this *</label>
                <input
                   required
                   type="text"

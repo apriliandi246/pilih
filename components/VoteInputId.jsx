@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import fire from "../config/config";
 import Alert from "./Alert";
+import { useState } from "react";
+import fire from "../config/config";
+import { useRouter } from "next/router";
 import styles from "../styles/form.module.css";
 
 export default function VoteInput({ isSubmit, onSubmit }) {
@@ -29,7 +29,7 @@ export default function VoteInput({ isSubmit, onSubmit }) {
             }
          })
          .catch((err) => {
-            console.log(err);
+            throw new Error(err.message);
          });
    }
 

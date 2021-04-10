@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import Time from "../../utils/date";
 import fire from "../../config/config";
+import { useEffect, useState } from "react";
 import scrollTo from "../../utils/scrollTo";
 import Spinner from "../../components/Spinner";
 import styles from "../../styles/vote.module.css";
@@ -15,22 +15,6 @@ export default function VotePage({ idVote }) {
    const [isVoteExist, setIsVoteExist] = useState(false);
    const [percentSubjectOne, setPercentSubjectOne] = useState(0);
    const [percentSubjectTwo, setPercentSubjectTwo] = useState(0);
-
-   useEffect(() => {
-      async function getIdentity() {
-         try {
-            const res = await fetch("http://api.ipify.org/?format=json");
-            const result = await res.json();
-            localStorage.setItem("user", result.ip);
-         } catch (err) {
-            throw new Error(err.message);
-         }
-      }
-
-      if (localStorage.getItem("user") === null) {
-         getIdentity();
-      }
-   }, []);
 
    useEffect(() => {
       setPercentSubjectOne(
@@ -64,17 +48,18 @@ export default function VotePage({ idVote }) {
          .doc(idVote.trim())
          .onSnapshot((snap) => {
             const data = snap.data();
+            const identity = localStorage.getItem("user") === true;
 
             if (snap.exists === true) {
                setVote(data);
                setIsVoteExist(true);
-            } else {
+            }
+
+            if (snap.exists === false) {
                setIsVoteExist(false);
             }
 
-            if (
-               data.peoplesVoted.includes(localStorage.getItem("user")) === true
-            ) {
+            if (data.peoplesVoted.includes(identity)) {
                setIsUserAllow(true);
             }
 

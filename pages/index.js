@@ -1,35 +1,21 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import VoteForm from "../components/VoteForm";
-import VoteInputId from "../components/VoteInputId";
 import styles from "../styles/home.module.css";
+import VoteInputId from "../components/VoteInputId";
 
 export default function Home() {
    const [isSubmit, setIsSubmit] = useState(false);
    const [statusInputId, setStatusInputId] = useState(false);
    const [statusVoteForm, setStatusVoteForm] = useState(false);
 
-   useEffect(() => {
-      async function getIdentity() {
-         try {
-            const res = await fetch("http://api.ipify.org/?format=json");
-            const result = await res.json();
-            localStorage.setItem("user", result.ip);
-         } catch (err) {
-            throw new Error(err.message);
-         }
-      }
-
-      if (localStorage.getItem("user") === null) {
-         getIdentity();
-      }
-   }, []);
-
-   function onClickButton(typeForm) {
+   function chooseForm(typeForm) {
       if (typeForm === "signin") {
          if (statusVoteForm === true) {
             setStatusVoteForm(false);
-         } else {
+         }
+
+         if (statusVoteForm === false) {
             setStatusVoteForm(true);
             setStatusInputId(false);
          }
@@ -38,7 +24,9 @@ export default function Home() {
       if (typeForm === "vote") {
          if (statusInputId === true) {
             setStatusInputId(false);
-         } else {
+         }
+
+         if (statusInputId === false) {
             setStatusVoteForm(false);
             setStatusInputId(true);
          }
@@ -58,13 +46,20 @@ export default function Home() {
                <div className={styles.auth}>
                   <button
                      disabled={isSubmit === true}
-                     onClick={() => onClickButton("signin")}
+                     onClick={() => chooseForm("signin")}
+                     style={{
+                        cursor: isSubmit === true ? "default" : "pointer",
+                     }}
                   >
                      Create voting
                   </button>
+
                   <button
                      disabled={isSubmit === true}
-                     onClick={() => onClickButton("vote")}
+                     onClick={() => chooseForm("vote")}
+                     style={{
+                        cursor: isSubmit === true ? "default" : "pointer",
+                     }}
                   >
                      Join voting
                   </button>
@@ -84,9 +79,7 @@ export default function Home() {
                   🤔 What the hell is this ??
                </h1>
 
-               <div
-                  className={`${styles.about_sectionOne} ${styles.about_section}`}
-               >
+               <div className={styles.about_section}>
                   <h1>🤝</h1>
                   <p>
                      Just web app to create voting and plaing with your friends
