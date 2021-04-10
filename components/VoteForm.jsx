@@ -1,5 +1,6 @@
 import { useState } from "react";
 import fire from "../config/config";
+import scrollTo from "../utils/scrollTo";
 import BadgeID from "./BadgeID";
 import styles from "../styles/form.module.css";
 
@@ -42,7 +43,7 @@ export default function SignInForm({ isSubmit, onSubmit }) {
             setIdVote(data.id);
             setSubjectOneName("");
             setSubjectTwoName("");
-            scrollToTop();
+            scrollTo(999, 0);
          });
    }
 
@@ -145,10 +146,4 @@ export default function SignInForm({ isSubmit, onSubmit }) {
          </form>
       </div>
    );
-}
-
-function scrollToTop() {
-   setTimeout(() => {
-      window.scrollTo(99999, 0);
-   }, 0);
 }

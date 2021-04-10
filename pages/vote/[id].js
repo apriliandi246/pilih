@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Time from "../../util/date";
+import Time from "../../utils/date";
 import fire from "../../config/config";
+import scrollTo from "../../utils/scrollTo";
 import Spinner from "../../components/Spinner";
 import styles from "../../styles/vote.module.css";
 import styles_2 from "../../styles/notfound.module.css";
@@ -191,7 +192,9 @@ export default function VotePage({ idVote }) {
                   )}
 
                   <details className={styles.subject_detail}>
-                     <summary onClick={scrollToBottom}>Voting details</summary>
+                     <summary onClick={() => scrollTo(0, 500)}>
+                        Voting details
+                     </summary>
 
                      <p className={styles.desc}>{vote.voteDesc}</p>
                      <p className={styles.voteBy}>
@@ -208,12 +211,6 @@ export default function VotePage({ idVote }) {
          </div>
       </>
    );
-}
-
-function scrollToBottom() {
-   setTimeout(() => {
-      window.scrollTo(0, 500);
-   }, 0);
 }
 
 export async function getServerSideProps({ params }) {
