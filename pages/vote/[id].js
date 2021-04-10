@@ -8,13 +8,47 @@ import Spinner from "../../components/Spinner";
 import styles from "../../styles/vote.module.css";
 import styles_2 from "../../styles/notfound.module.css";
 
-export default function VotePage({ idVote }) {
+export default function VotePage({ idVote: voteId }) {
    const [vote, setVote] = useState("");
    const [isLoading, setIsLoading] = useState(true);
-   const [isUserAllow, setIsUserAllow] = useState(false);
+   const [isUserAllow, setIsUserAllow] = useState(true);
    const [isVoteExist, setIsVoteExist] = useState(false);
    const [percentSubjectOne, setPercentSubjectOne] = useState(0);
    const [percentSubjectTwo, setPercentSubjectTwo] = useState(0);
+
+   useEffect(() => {
+      fire
+         .firestore()
+         .collection("votes")
+         .doc(voteId.trim())
+         .onSnapshot((snap) => {
+            const data = snap.data();
+            const identity = localStorage.getItem("user");
+
+            if (snap.exists === false) {
+               setIsVoteExist(false);
+            }
+
+            if (snap.exists === true) {
+               if (data.peoplesVoted.includes(identity) === true) {
+                  setIsUserAllow(false);
+               }
+
+               if (data.maxVote > 0) {
+                  if (
+                     data.totalVotesSubjectOne === data.maxVote ||
+                     data.totalVotesSubjectTwo === data.maxVote
+                  ) {
+                     setIsUserAllow(false);
+                  }
+               }
+            }
+
+            setTimeout(() => {
+               setIsLoading(false);
+            }, 300);
+         });
+   }, []);
 
    useEffect(() => {
       setPercentSubjectOne(
@@ -36,59 +70,25 @@ export default function VotePage({ idVote }) {
             vote.totalVotesSubjectOne === vote.maxVote ||
             vote.totalVotesSubjectTwo === vote.maxVote
          ) {
-            setIsUserAllow(true);
+            setIsUserAllow(false);
          }
       }
    }, [vote]);
-
-   useEffect(() => {
-      fire
-         .firestore()
-         .collection("votes")
-         .doc(idVote.trim())
-         .onSnapshot((snap) => {
-            const data = snap.data();
-            const identity = localStorage.getItem("user") === true;
-
-            if (snap.exists === true) {
-               setVote(data);
-               setIsVoteExist(true);
-            }
-
-            if (snap.exists === false) {
-               setIsVoteExist(false);
-            }
-
-            if (data.peoplesVoted.includes(identity)) {
-               setIsUserAllow(true);
-            }
-
-            if (data.maxVote > 0) {
-               if (
-                  data.totalVotesSubjectOne === data.maxVote ||
-                  data.totalVotesSubjectTwo === data.maxVote
-               ) {
-                  setIsUserAllow(true);
-               }
-            }
-
-            setTimeout(() => {
-               setIsLoading(false);
-            }, 500);
-         });
-   }, []);
 
    function votingSubject(subject) {
       fire
          .firestore()
          .collection("votes")
-         .doc(idVote)
+         .doc(voteId.trim())
          .update({
-            peoplesVoted: [...vote.peoplesVoted, localStorage.getItem("user")],
             [subject]: (vote[subject] += 1),
+            peoplesVoted: [...vote.peoplesVoted, localStorage.getItem("user")],
          })
          .then(() => {
-            setIsUserAllow(true);
+            setIsUserAllow(false);
+         })
+         .catch((err) => {
+            throw new Error(err.message);
          });
    }
 
@@ -127,6 +127,7 @@ export default function VotePage({ idVote }) {
                      <h2 className={styles.subject_title}>
                         {vote.subjectOneName}
                      </h2>
+
                      <span className={styles.subject_votes}>
                         {vote.maxVote > 0
                            ? `${vote.totalVotesSubjectOne} / ${vote.maxVote}`
@@ -146,6 +147,7 @@ export default function VotePage({ idVote }) {
                      <h2 className={styles.subject_title}>
                         {vote.subjectTwoName}
                      </h2>
+
                      <span className={styles.subject_votes}>
                         {vote.maxVote > 0
                            ? `${vote.totalVotesSubjectTwo} / ${vote.maxVote}`
@@ -161,13 +163,14 @@ export default function VotePage({ idVote }) {
                      ></div>
                   </div>
 
-                  {isUserAllow === false && (
+                  {isUserAllow === true && (
                      <div className={styles.subject_buttons}>
                         <button
                            onClick={() => votingSubject("totalVotesSubjectOne")}
                         >
                            {vote.subjectOneName}
                         </button>
+
                         <button
                            onClick={() => votingSubject("totalVotesSubjectTwo")}
                         >
@@ -182,10 +185,12 @@ export default function VotePage({ idVote }) {
                      </summary>
 
                      <p className={styles.desc}>{vote.voteDesc}</p>
+
                      <p className={styles.voteBy}>
                         <span style={{ marginRight: "8px" }}>😀</span> Created
                         by {vote.fullName}
                      </p>
+
                      <p className={styles.date}>
                         <span style={{ marginRight: "8px" }}>⏲</span>{" "}
                         {new Time(vote.createdAt).getNormalRt()}
