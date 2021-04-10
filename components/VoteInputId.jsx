@@ -24,6 +24,7 @@ export default function VoteInput({ isSubmit, onSubmit }) {
             }
 
             if (querySnapshot.exists === false) {
+               onSubmit(false);
                setIsNotif(true);
             }
          })
@@ -34,9 +35,7 @@ export default function VoteInput({ isSubmit, onSubmit }) {
 
    return (
       <div className={styles.container}>
-         {isNotif === true && (
-            <Alert onCloseAlert={setIsNotif} message="Vote not found" />
-         )}
+         {isNotif === true && <Alert message="Voting not found" />}
 
          <form onSubmit={submitForm}>
             <div className={styles.input}>

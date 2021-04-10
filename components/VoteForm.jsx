@@ -1,6 +1,6 @@
 import { useState } from "react";
 import fire from "../config/config";
-import Alert from "./Alert";
+import BadgeID from "./BadgeID";
 import styles from "../styles/form.module.css";
 
 export default function SignInForm({ isSubmit, onSubmit }) {
@@ -48,7 +48,7 @@ export default function SignInForm({ isSubmit, onSubmit }) {
 
    return (
       <div className={styles.container}>
-         {isNotif === true && <Alert voteID={idVote} />}
+         {isNotif === true && <BadgeID voteID={idVote} />}
 
          <form onSubmit={submitForm}>
             <div className={styles.input}>
