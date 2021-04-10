@@ -10,36 +10,26 @@ import styles_2 from "../../styles/notfound.module.css";
 export default function VotePage({ idVote }) {
    const [vote, setVote] = useState("");
    const [isLoading, setIsLoading] = useState(true);
-   const [isVoteMax, setIsVoteMax] = useState(false);
+   const [isUserAllow, setIsUserAllow] = useState(false);
    const [isVoteExist, setIsVoteExist] = useState(false);
    const [percentSubjectOne, setPercentSubjectOne] = useState(0);
    const [percentSubjectTwo, setPercentSubjectTwo] = useState(0);
 
-   function votingSubjectOne() {
-      fire
-         .firestore()
-         .collection("votes")
-         .doc(idVote)
-         .update({
-            totalVotesSubjectOne: (vote.totalVotesSubjectOne += 1),
-         });
-   }
+   useEffect(() => {
+      async function getIdentity() {
+         try {
+            const res = await fetch("http://api.ipify.org/?format=json");
+            const result = await res.json();
+            localStorage.setItem("user", result.ip);
+         } catch (err) {
+            throw new Error(err.message);
+         }
+      }
 
-   function votingSubjectTwo() {
-      fire
-         .firestore()
-         .collection("votes")
-         .doc(idVote)
-         .update({
-            totalVotesSubjectTwo: (vote.totalVotesSubjectTwo += 1),
-         });
-   }
-
-   function scrollToBottom() {
-      setTimeout(() => {
-         window.scrollTo(0, 500);
-      }, 0);
-   }
+      if (localStorage.getItem("user") === null) {
+         getIdentity();
+      }
+   }, []);
 
    useEffect(() => {
       setPercentSubjectOne(
@@ -61,7 +51,7 @@ export default function VotePage({ idVote }) {
             vote.totalVotesSubjectOne === vote.maxVote ||
             vote.totalVotesSubjectTwo === vote.maxVote
          ) {
-            setIsVoteMax(true);
+            setIsUserAllow(true);
          }
       }
    }, [vote]);
@@ -72,19 +62,27 @@ export default function VotePage({ idVote }) {
          .collection("votes")
          .doc(idVote.trim())
          .onSnapshot((snap) => {
+            const data = snap.data();
+
             if (snap.exists === true) {
+               setVote(data);
                setIsVoteExist(true);
-               setVote(snap.data());
             } else {
                setIsVoteExist(false);
             }
 
-            if (snap.data().maxVote > 0) {
+            if (
+               data.peoplesVoted.includes(localStorage.getItem("user")) === true
+            ) {
+               setIsUserAllow(true);
+            }
+
+            if (data.maxVote > 0) {
                if (
-                  snap.data().totalVotesSubjectOne === snap.data().maxVote ||
-                  snap.data().totalVotesSubjectTwo === snap.data().maxVote
+                  data.totalVotesSubjectOne === data.maxVote ||
+                  data.totalVotesSubjectTwo === data.maxVote
                ) {
-                  setIsVoteMax(true);
+                  setIsUserAllow(true);
                }
             }
 
@@ -93,6 +91,20 @@ export default function VotePage({ idVote }) {
             }, 500);
          });
    }, []);
+
+   function votingSubject(subject) {
+      fire
+         .firestore()
+         .collection("votes")
+         .doc(idVote)
+         .update({
+            peoplesVoted: [...vote.peoplesVoted, localStorage.getItem("user")],
+            [subject]: (vote[subject] += 1),
+         })
+         .then(() => {
+            setIsUserAllow(true);
+         });
+   }
 
    if (isLoading === true) {
       return <Spinner />;
@@ -104,11 +116,13 @@ export default function VotePage({ idVote }) {
             <title>Let's voting</title>
          </Head>
 
-         <div className={styles.link_home}>
-            <Link href="/">
-               <a className={styles.to_home}>Home</a>
-            </Link>
-         </div>
+         {isVoteExist === true && (
+            <div className={styles.link_home}>
+               <Link href="/">
+                  <a className={styles.to_home}>Home</a>
+               </Link>
+            </div>
+         )}
 
          <div className={styles.container}>
             {isVoteExist === false ? (
@@ -161,12 +175,16 @@ export default function VotePage({ idVote }) {
                      ></div>
                   </div>
 
-                  {isVoteMax === false && (
+                  {isUserAllow === false && (
                      <div className={styles.subject_buttons}>
-                        <button onClick={() => votingSubjectOne()}>
+                        <button
+                           onClick={() => votingSubject("totalVotesSubjectOne")}
+                        >
                            {vote.subjectOneName}
                         </button>
-                        <button onClick={() => votingSubjectTwo()}>
+                        <button
+                           onClick={() => votingSubject("totalVotesSubjectTwo")}
+                        >
                            {vote.subjectTwoName}
                         </button>
                      </div>
@@ -190,6 +208,12 @@ export default function VotePage({ idVote }) {
          </div>
       </>
    );
+}
+
+function scrollToBottom() {
+   setTimeout(() => {
+      window.scrollTo(0, 500);
+   }, 0);
 }
 
 export async function getServerSideProps({ params }) {

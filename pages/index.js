@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import VoteForm from "../components/VoteForm";
 import VoteInputId from "../components/VoteInputId";
 import styles from "../styles/home.module.css";
@@ -8,6 +8,22 @@ export default function Home() {
    const [isSubmit, setIsSubmit] = useState(false);
    const [statusInputId, setStatusInputId] = useState(false);
    const [statusVoteForm, setStatusVoteForm] = useState(false);
+
+   useEffect(() => {
+      async function getIdentity() {
+         try {
+            const res = await fetch("http://api.ipify.org/?format=json");
+            const result = await res.json();
+            localStorage.setItem("user", result.ip);
+         } catch (err) {
+            throw new Error(err.message);
+         }
+      }
+
+      if (localStorage.getItem("user") === null) {
+         getIdentity();
+      }
+   }, []);
 
    function onClickButton(typeForm) {
       if (typeForm === "signin") {
