@@ -17,7 +17,7 @@ export default function VotePage({ voteId }) {
    const [percentSubjectTwo, setPercentSubjectTwo] = useState(0);
 
    useEffect(() => {
-      fire
+      const unsubscribe = fire
          .firestore()
          .collection("votes")
          .doc(voteId.trim())
@@ -50,6 +50,8 @@ export default function VotePage({ voteId }) {
                setIsLoading(false);
             }, 300);
          });
+
+      return () => unsubscribe();
    }, []);
 
    useEffect(() => {
@@ -72,7 +74,7 @@ export default function VotePage({ voteId }) {
             vote.totalVotesSubjectOne === vote.maxVote ||
             vote.totalVotesSubjectTwo === vote.maxVote
          ) {
-            setIsUserAllow(false);
+            setIsUserAllow(true);
          }
       }
    }, [vote]);

@@ -11,7 +11,7 @@
    height: 60px;
    border-radius: 100%;
    box-sizing: border-box;
-   border: 6px solid #532e2e;
+   border: 6px solid #0678fb;
    border-top-color: transparent;
    animation: spinner 0.7s linear infinite;
 }

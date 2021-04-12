@@ -24,51 +24,49 @@
 .input__input,
 .input__textarea {
    outline: none;
-   padding: 0.6rem;
+   padding: 0.7rem;
    font-size: 1rem;
-   text-indent: 1px;
    line-height: 23px;
-   border-radius: 4px;
+   text-indent: 0.5px;
+   border-radius: 3px;
    margin-bottom: 25px;
-   border: 1px solid #756969;
-   transition: box-shadow 0.1s linear;
+   border: 2px solid #0678fb;
+   transition: box-shadow ease-in 0.1s;
+   box-shadow: 7px 7px 1px 1px #0678fb;
 }
 
 .input__textarea {
    resize: none;
    white-space: pre-line;
+   box-shadow: 12px 12px 1px 1px #0678fb;
 }
 
 .submit__btn {
    width: 100%;
    outline: none;
    color: #000000;
-   padding: 0.6rem;
+   padding: 0.7rem;
    font-size: 1rem;
    cursor: pointer;
-   margin-top: 10px;
-   border-radius: 4px;
-   background-color: #f5f5f5;
-   border: 1px solid #756969;
-   transition: background-color 0.1s, box-shadow 0.1s linear;
+   margin-top: 20px;
+   border-radius: 3px;
+   background-color: #fffefe;
+   border: 2px solid #0678fb;
+   transition: box-shadow ease-in 0.1s;
+   box-shadow: 7px 7px 1px 1px #0678fb;
+}
+
+.input__input:focus,
+.input__textarea:focus {
+   box-shadow: 3px 3px 1px 1px #0678fb;
 }
 
 .submit__btn:disabled {
    pointer-events: none;
 }
 
-.submit__btn:hover {
-   background-color: #f1ecec;
-}
-
 .submit__btn:focus {
-   background-color: #f5f5f5;
-   box-shadow: 0 0 0.7px 3px #532e2eab;
-}
-
-.input__input:focus,
-.input__textarea:focus {
-   box-shadow: 0 0 0.7px 3px #532e2eab;
+   box-shadow: 3px 3px 1px 1px #0678fb;
 }
 
 @media screen and (min-width: 600px) {
@@ -79,18 +77,18 @@
 
 @media screen and (min-width: 760px) {
    .input__input {
-      padding: 0.5rem;
+      padding: 0.6rem;
    }
 
    .input__label {
-      font-size: 0.9rem;
       margin-bottom: 13px;
+      font-size: calc(0.9rem + 1px);
    }
 
    .input__input,
    .input__textarea {
-      font-size: 0.9rem;
       margin-bottom: 30px;
+      font-size: calc(0.9rem + 1px);
    }
 
    .input__textarea {
@@ -98,6 +96,6 @@
    }
 
    .submit__btn {
-      font-size: 0.9rem;
+      font-size: calc(0.9rem + 1px);
    }
 }
