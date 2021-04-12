@@ -36,12 +36,14 @@ export default function Home() {
    return (
       <>
          <Head>
-            <title>Pilih | Home</title>
+            <title>📢 Pilih</title>
          </Head>
 
          <div className={styles.container}>
             <div className={styles.header}>
-               <h1 className={styles.title}>PILIH</h1>
+               <h1 className={styles.title}>
+                  <span style={{ marginRight: "-14px" }}>📢</span> PILIH
+               </h1>
 
                <div className={styles.auth}>
                   <button

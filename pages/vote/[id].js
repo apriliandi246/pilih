@@ -12,7 +12,7 @@ export default function VotePage({ idVote: voteId }) {
    const [vote, setVote] = useState("");
    const [isLoading, setIsLoading] = useState(true);
    const [isUserAllow, setIsUserAllow] = useState(true);
-   const [isVoteExist, setIsVoteExist] = useState(false);
+   const [isVoteExist, setIsVoteExist] = useState(true);
    const [percentSubjectOne, setPercentSubjectOne] = useState(0);
    const [percentSubjectTwo, setPercentSubjectTwo] = useState(0);
 
@@ -30,6 +30,8 @@ export default function VotePage({ idVote: voteId }) {
             }
 
             if (snap.exists === true) {
+               setVote(data);
+
                if (data.peoplesVoted.includes(identity) === true) {
                   setIsUserAllow(false);
                }
