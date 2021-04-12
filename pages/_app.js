@@ -4,10 +4,12 @@ import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
    useEffect(() => {
+      document.documentElement.setAttribute("lang", "en");
+
       if (localStorage.getItem("user") === null) {
          async function getIdentity() {
             try {
-               const res = await fetch("http://api.ipify.org/?format=json");
+               const res = await fetch("https://api.ipify.org/?format=json");
                const result = await res.json();
                localStorage.setItem("user", result.ip);
             } catch (err) {
