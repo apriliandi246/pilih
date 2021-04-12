@@ -194,7 +194,7 @@ export default function VotePage({ idVote: voteId }) {
                      </p>
 
                      <p className={styles.date}>
-                        <span style={{ marginRight: "8px" }}>⏲</span>{" "}
+                        <span style={{ marginRight: "8px" }}>🕑</span>
                         {new Time(vote.createdAt).getNormalRt()}
                      </p>
                   </details>

@@ -82,7 +82,7 @@ export default function Home() {
                </h1>
 
                <div className={styles.about_section}>
-                  <h1>🤝</h1>
+                  <h1>😀 😁</h1>
                   <p>
                      Just web app to create voting and plaing with your friends
                   </p>
