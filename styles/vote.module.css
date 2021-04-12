@@ -4,12 +4,12 @@
    animation: scaleAnimation 0.2s;
 }
 
-.link_home {
+.home {
    margin-top: 60px;
    text-align: center;
 }
 
-.to_home {
+.home__link {
    padding: 15px;
    outline: none;
    color: #181111;
@@ -23,11 +23,11 @@
    box-shadow: 6px 6px 1px 1px #d3b896;
 }
 
-.to_home:hover {
+.home__link:hover {
    box-shadow: 3px 3px 1px 1px #d3b896;
 }
 
-.title_vote {
+.vote__title {
    color: #181111;
    font-size: 1.3rem;
    text-align: center;
@@ -38,15 +38,15 @@
    box-shadow: 7px 7px 1px 1px #d3b896;
 }
 
-.subject_desc {
+.vote__subject {
    display: flex;
    margin-bottom: 20px;
    align-items: center;
    justify-content: space-between;
 }
 
-.subject_one,
-.subject_two {
+.vote_progress__container_one,
+.vote_progress__container_two {
    width: 100%;
    height: 40px;
    border: none;
@@ -58,15 +58,15 @@
    background-color: transparent;
 }
 
-.subject_one {
+.vote_progress__container_one {
    margin-bottom: 4rem;
 }
 
-.subject_two {
+.vote_progress__container_two {
    margin-bottom: 3.8rem;
 }
 
-.subject_progress {
+.vote__subject_progress {
    top: 0;
    width: 180px;
    height: 100%;
@@ -76,7 +76,7 @@
    animation: loading 1s ease-in-out infinite;
 }
 
-.subject_buttons {
+.vote__buttons {
    gap: 40px;
    width: 100%;
    display: flex;
@@ -84,7 +84,7 @@
    justify-content: center;
 }
 
-.subject_buttons button {
+.vote__submit_btn {
    outline: none;
    color: #181111;
    padding: 0.6rem;
@@ -96,7 +96,7 @@
    transition: background-color 0.1s, box-shadow 0.1s linear;
 }
 
-.subject_detail {
+.vote__details {
    color: #181111;
    margin-top: 4rem;
    border-radius: 3px;
@@ -107,14 +107,14 @@
    box-shadow: 7px 7px 1px 1px #d3b896;
 }
 
-.subject_detail summary {
+.vote__show_details {
    padding: 8px;
    outline: none;
    color: #493434;
    cursor: pointer;
 }
 
-.desc {
+.vote__desc_details {
    font-size: 1rem;
    margin-top: 16px;
    line-height: 23px;
@@ -123,18 +123,18 @@
    white-space: pre-line;
 }
 
-.date,
-.voteBy {
+.vote__date,
+.vote__vote_by {
    font-size: 1rem;
    margin-bottom: 10px;
    letter-spacing: 0.6px;
 }
 
-.subject_buttons button:hover {
+.vote__submit_btn:hover {
    background-color: #f1ecec;
 }
 
-.subject_buttons button:focus {
+.vote__submit_btn:focus {
    background-color: #f5f5f5;
    box-shadow: 0 0 0.7px 3px #522d2dab;
 }
@@ -166,22 +166,24 @@
 }
 
 @media screen and (min-width: 760px) {
-   .title_vote {
+   .vote__title {
       padding-block: 25px;
       font-size: calc(1.3rem - 0.1rem);
    }
 
-   .subject_detail p {
+   .vote__date,
+   .vote__vote_by,
+   .vote__desc_details {
       line-height: 28px;
       font-size: 0.9rem;
    }
 
-   .to_home,
-   .subject_buttons button {
+   .home__link,
+   .vote__submit_btn {
       font-size: 0.9rem;
    }
 
-   .voteBy {
+   .vote__vote_by {
       margin-bottom: 6px;
    }
 }

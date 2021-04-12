@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import scrollTo from "../../utils/scrollTo";
 import Spinner from "../../components/Spinner";
 import styles from "../../styles/vote.module.css";
-import styles_2 from "../../styles/notfound.module.css";
+import not_found from "../../styles/not-found.module.css";
 
-export default function VotePage({ idVote: voteId }) {
+export default function VotePage({ voteId }) {
    const [vote, setVote] = useState("");
    const [isLoading, setIsLoading] = useState(true);
    const [isUserAllow, setIsUserAllow] = useState(true);
@@ -105,32 +105,31 @@ export default function VotePage({ idVote: voteId }) {
          </Head>
 
          {isVoteExist === true && (
-            <div className={styles.link_home}>
+            <div className={styles.home}>
                <Link href="/">
-                  <a className={styles.to_home}>Home</a>
+                  <a className={styles.home__link}>Home</a>
                </Link>
             </div>
          )}
 
          <div className={styles.container}>
             {isVoteExist === false ? (
-               <div className={styles_2.container}>
-                  <h1 className={styles_2.title}>Vote Not Found</h1>
+               <div className={not_found.container}>
+                  <h1 className={not_found.title}>Vote Not Found</h1>
 
                   <Link href="/">
-                     <a className={styles_2.home}>Home</a>
+                     <a className={not_found.home}>Home</a>
                   </Link>
                </div>
             ) : (
                <>
-                  <h1 className={styles.title_vote}>{vote.voteTitle}</h1>
+                  <h1 className={styles.vote__title}>{vote.voteTitle}</h1>
 
-                  <div className={styles.subject_desc}>
-                     <h2 className={styles.subject_title}>
-                        {vote.subjectOneName}
-                     </h2>
+                  {/* Subject Two */}
+                  <div className={styles.vote__subject}>
+                     <h2>{vote.subjectOneName}</h2>
 
-                     <span className={styles.subject_votes}>
+                     <span>
                         {vote.maxVote > 0
                            ? `${vote.totalVotesSubjectOne} / ${vote.maxVote}`
                            : vote.totalVotesSubjectOne}{" "}
@@ -138,19 +137,18 @@ export default function VotePage({ idVote: voteId }) {
                      </span>
                   </div>
 
-                  <div className={styles.subject_one}>
+                  <div className={styles.vote_progress__container_one}>
                      <div
-                        className={styles.subject_progress}
+                        className={styles.vote__subject_progress}
                         style={{ width: `${percentSubjectOne}%` }}
                      ></div>
                   </div>
 
-                  <div className={styles.subject_desc}>
-                     <h2 className={styles.subject_title}>
-                        {vote.subjectTwoName}
-                     </h2>
+                  {/* Subject Two */}
+                  <div className={styles.vote__subject}>
+                     <h2>{vote.subjectTwoName}</h2>
 
-                     <span className={styles.subject_votes}>
+                     <span>
                         {vote.maxVote > 0
                            ? `${vote.totalVotesSubjectTwo} / ${vote.maxVote}`
                            : vote.totalVotesSubjectTwo}{" "}
@@ -158,22 +156,24 @@ export default function VotePage({ idVote: voteId }) {
                      </span>
                   </div>
 
-                  <div className={styles.subject_two}>
+                  <div className={styles.vote_progress__container_two}>
                      <div
-                        className={styles.subject_progress}
+                        className={styles.vote__subject_progress}
                         style={{ width: `${percentSubjectTwo}%` }}
                      ></div>
                   </div>
 
                   {isUserAllow === true && (
-                     <div className={styles.subject_buttons}>
+                     <div className={styles.vote__buttons}>
                         <button
+                           className={styles.vote__submit_btn}
                            onClick={() => votingSubject("totalVotesSubjectOne")}
                         >
                            {vote.subjectOneName}
                         </button>
 
                         <button
+                           className={styles.vote__submit_btn}
                            onClick={() => votingSubject("totalVotesSubjectTwo")}
                         >
                            {vote.subjectTwoName}
@@ -181,19 +181,24 @@ export default function VotePage({ idVote: voteId }) {
                      </div>
                   )}
 
-                  <details className={styles.subject_detail}>
-                     <summary onClick={() => scrollTo(0, 500)}>
+                  <details className={styles.vote__details}>
+                     <summary
+                        className={styles.vote__show_details}
+                        onClick={() => scrollTo(0, 500)}
+                     >
                         Voting details
                      </summary>
 
-                     <p className={styles.desc}>{vote.voteDesc}</p>
+                     <p className={styles.vote__desc_details}>
+                        {vote.voteDesc}
+                     </p>
 
-                     <p className={styles.voteBy}>
+                     <p className={styles.vote__vote_by}>
                         <span style={{ marginRight: "8px" }}>😀</span> Created
                         by {vote.fullName}
                      </p>
 
-                     <p className={styles.date}>
+                     <p className={styles.vote__date}>
                         <span style={{ marginRight: "8px" }}>🕑</span>
                         {new Time(vote.createdAt).getNormalRt()}
                      </p>
@@ -208,7 +213,7 @@ export default function VotePage({ idVote: voteId }) {
 export async function getServerSideProps({ params }) {
    return {
       props: {
-         idVote: params.id,
+         voteId: params.id,
       },
    };
 }

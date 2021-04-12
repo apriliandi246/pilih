@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
-import styles from "../styles/notfound.module.css";
+import styles from "../styles/not-found.module.css";
 
 export default function Custom404() {
    return (

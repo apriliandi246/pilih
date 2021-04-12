@@ -1,7 +1,7 @@
+import AlertId from "./AlertId";
 import { useState } from "react";
 import fire from "../config/config";
 import scrollTo from "../utils/scrollTo";
-import BadgeID from "./BadgeID";
 import styles from "../styles/form.module.css";
 
 export default function SignInForm({ isSubmit, onSubmit }) {
@@ -49,98 +49,115 @@ export default function SignInForm({ isSubmit, onSubmit }) {
 
    return (
       <div className={styles.container}>
-         {isNotif === true && <BadgeID voteID={idVote} />}
+         {isNotif === true && <AlertId voteId={idVote} />}
 
-         <form onSubmit={submitForm}>
+         <form
+            autoComplete="off"
+            spellCheck="false"
+            onSubmit={submitForm}
+            className={styles.form}
+         >
             <div className={styles.input}>
-               <label htmlFor="yourName">Who is this *</label>
+               <label htmlFor="yourName" className={styles.input__label}>
+                  Who is this *
+               </label>
+
                <input
                   required
                   type="text"
                   id="yourName"
                   value={fullName}
-                  autoComplete="off"
-                  spellCheck="false"
                   placeholder="your name"
                   disabled={isSubmit === true}
+                  className={styles.input__input}
                   onChange={(e) => setFullName(e.target.value)}
                />
             </div>
 
             <div className={styles.input}>
-               <label htmlFor="title">Title *</label>
+               <label htmlFor="title" className={styles.input__label}>
+                  Title *
+               </label>
+
                <input
                   required
                   id="title"
                   type="text"
                   value={voteTitle}
-                  autoComplete="off"
-                  spellCheck="false"
                   placeholder="title"
                   disabled={isSubmit === true}
+                  className={styles.input__input}
                   onChange={(e) => setVoteTitle(e.target.value)}
                />
             </div>
 
             <div className={styles.input}>
-               <label htmlFor="maxVote">Maximum votes</label>
+               <label htmlFor="maxVote" className={styles.input__label}>
+                  Maximum votes
+               </label>
+
                <input
                   min="0"
                   id="maxVote"
                   type="number"
                   value={maxVote}
-                  autoComplete="off"
-                  spellCheck="false"
                   placeholder="maximum votes"
                   disabled={isSubmit === true}
+                  className={styles.input__input}
                   onChange={(e) => setMaxVote(e.target.value)}
                />
             </div>
 
             <div className={styles.input}>
-               <label htmlFor="subjectOne">Subject one *</label>
+               <label htmlFor="subjectOne" className={styles.input__label}>
+                  Subject one *
+               </label>
+
                <input
                   type="text"
                   id="subjectOne"
-                  autoComplete="off"
-                  spellCheck="false"
                   value={subjectOneName}
                   disabled={isSubmit === true}
                   placeholder="subject one name"
+                  className={styles.input__input}
                   onChange={(e) => setSubjectOneName(e.target.value)}
                />
             </div>
 
             <div className={styles.input}>
-               <label htmlFor="subjectTwo">Subject two *</label>
+               <label htmlFor="subjectTwo" className={styles.input__label}>
+                  Subject two *
+               </label>
+
                <input
                   id="subjectTwo"
-                  autoComplete="off"
-                  spellCheck="false"
                   value={subjectTwoName}
                   disabled={isSubmit === true}
                   placeholder="subject two name"
+                  className={styles.input__input}
                   onChange={(e) => setSubjectTwoName(e.target.value)}
                />
             </div>
 
             <div className={styles.input}>
-               <label htmlFor="desc">Detail description *</label>
+               <label htmlFor="desc" className={styles.input__label}>
+                  Detail description *
+               </label>
+
                <textarea
                   id="desc"
                   cols="30"
                   rows="14"
                   required
                   value={voteDesc}
-                  spellCheck="false"
-                  autoComplete="off"
                   disabled={isSubmit === true}
                   placeholder="voting description"
+                  className={styles.input__textarea}
                   onChange={(e) => setVoteDesc(e.target.value)}
                ></textarea>
             </div>
 
-            <button disabled={isSubmit === true} className={styles.submit_btn}>
+            <button disabled={isSubmit === true} className={styles.submit__btn}>
                {isSubmit === true ? "Loading" : "Create"}
             </button>
          </form>

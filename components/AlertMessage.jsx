@@ -1,4 +1,4 @@
-import styles from "../styles/Alert.module.css";
+import styles from "../styles/alert.module.css";
 
 export default function Alert({ message }) {
    return (

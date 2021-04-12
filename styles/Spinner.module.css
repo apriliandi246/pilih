@@ -21,9 +21,3 @@
       transform: rotate(360deg);
    }
 }
-
-@media screen and (min-width: 700px) {
-   .spinner_1 {
-      left: 47%;
-   }
-}

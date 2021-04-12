@@ -10,7 +10,7 @@ export default function Home() {
    const [statusVoteForm, setStatusVoteForm] = useState(false);
 
    function chooseForm(typeForm) {
-      if (typeForm === "signin") {
+      if (typeForm === "create") {
          if (statusVoteForm === true) {
             setStatusVoteForm(false);
          }
@@ -21,7 +21,7 @@ export default function Home() {
          }
       }
 
-      if (typeForm === "vote") {
+      if (typeForm === "join") {
          if (statusInputId === true) {
             setStatusInputId(false);
          }
@@ -41,14 +41,15 @@ export default function Home() {
 
          <div className={styles.container}>
             <div className={styles.header}>
-               <h1 className={styles.title}>
-                  <span style={{ marginRight: "-14px" }}>📢</span> PILIH
+               <h1 className={styles.header__title}>
+                  <span className={styles.header__emoji}>📢</span> PILIH
                </h1>
 
-               <div className={styles.auth}>
+               <div className={styles.header_buttons}>
                   <button
                      disabled={isSubmit === true}
-                     onClick={() => chooseForm("signin")}
+                     onClick={() => chooseForm("create")}
+                     className={styles.header_button__create}
                      style={{
                         cursor: isSubmit === true ? "default" : "pointer",
                      }}
@@ -58,7 +59,8 @@ export default function Home() {
 
                   <button
                      disabled={isSubmit === true}
-                     onClick={() => chooseForm("vote")}
+                     onClick={() => chooseForm("join")}
+                     className={styles.header_button__join}
                      style={{
                         cursor: isSubmit === true ? "default" : "pointer",
                      }}
@@ -77,43 +79,48 @@ export default function Home() {
             )}
 
             <div className={styles.about}>
-               <h1 className={styles.about_title}>
+               <h1 className={styles.about__title}>
                   🤔 What the hell is this ??
                </h1>
 
-               <div className={styles.about_section}>
-                  <h1>😀 😁</h1>
-                  <p>
+               <div className={styles.about__section}>
+                  <h1 className={styles.about__sub_title}>😀 😁</h1>
+                  <p className={styles.about__sub_desc}>
                      Just web app to create voting and plaing with your friends
                   </p>
                </div>
 
-               <div className={styles.about_section}>
-                  <h1>👌</h1>
-                  <p>Easy to use and you dont have to create an account</p>
+               <div className={styles.about__section}>
+                  <h1 className={styles.about__sub_title}>👌</h1>
+                  <p className={styles.about__sub_desc}>
+                     Easy to use and you dont have to create an account
+                  </p>
                </div>
 
-               <div className={styles.about_section}>
-                  <h1>🔐</h1>
-                  <p>
+               <div className={styles.about__section}>
+                  <h1 className={styles.about__sub_title}>🔐</h1>
+                  <p className={styles.about__sub_desc}>
                      If you want make a voting you should have unique voting ID
                      from who create the voting
                   </p>
                </div>
 
-               <div className={styles.about_section}>
-                  <h1>👀</h1>
-                  <p>Don't worry, I dont steal your data</p>
+               <div className={styles.about__section}>
+                  <h1 className={styles.about__sub_title}>👀</h1>
+                  <p className={styles.about__sub_desc}>
+                     Don't worry, I dont steal your data
+                  </p>
                </div>
             </div>
 
             <footer className={styles.footer}>
-               <p>Built with 💚 with Next.Js</p>
+               <p className={styles.footer__desc}>Built with 💚 with Next.Js</p>
 
                <a
-                  href="https://twitter.com/calon_jenazah__"
-                  target="_blank"
                   rel="noopener"
+                  target="_blank"
+                  className={styles.footer__link}
+                  href="https://twitter.com/calon_jenazah__"
                >
                   Twitter
                </a>
