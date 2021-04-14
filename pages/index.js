@@ -37,6 +37,48 @@ export default function Home() {
       <>
          <Head>
             <title>📢 Pilih</title>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <meta
+               name="description"
+               content="Web app for making a voting and playing with your fu*king friends"
+            />
+
+            {/* Open Graph */}
+            <meta property="og:type" content="website" />
+            <meta
+               property="og:url"
+               content="https://pilih.vercel.app"
+               key="ogurl"
+            />
+            <meta property="og:site_name" content="📢 Pilih" key="ogsitename" />
+            <meta
+               property="og:image"
+               content="https://i.ibb.co/LR67Djy/logo.jpg"
+               key="ogimage"
+            />
+            <meta
+               property="og:image:secure_url"
+               content="https://i.ibb.co/LR67Djy/logo.jpg"
+               key="ogimagesecureurl"
+            />
+            <meta property="og:title" content="📢 Pilih" key="ogtitle" />
+            <meta
+               property="og:description"
+               content="Web app for making a voting and playing with your fu*king friends"
+               key="ogdesc"
+            />
+
+            {/* twitter open graph */}
+            <meta property="twitter:card" content="summary" />
+            <meta
+               property="twitter:image"
+               content="https://i.ibb.co/LR67Djy/logo.jpg"
+            />
+            <meta property="twitter:site" content="@calon_jenazah__" />
          </Head>
 
          <div className={styles.container}>
@@ -108,7 +150,7 @@ export default function Home() {
                <div className={styles.about__section}>
                   <h1 className={styles.about__sub_title}>😀 😁</h1>
                   <p className={styles.about__sub_desc}>
-                     Just web app to create voting and plaing with your friends
+                     Just web app to create voting and playing with your friends
                   </p>
                </div>
 
