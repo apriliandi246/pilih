@@ -146,7 +146,7 @@
    pointer-events: none;
 }
 
-@media screen and (max-width: 447px) {
+@media screen and (max-width: 452px) {
    .footer__link,
    .header_button__join,
    .header_button__create {
@@ -155,7 +155,7 @@
 
    .icon {
       margin-right: 0;
-      margin-bottom: 12px;
+      margin-bottom: 9.4px;
    }
 }
 

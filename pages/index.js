@@ -187,8 +187,8 @@ export default function Home() {
                   href="https://twitter.com/calon_jenazah__"
                >
                   <svg
-                     width="26"
-                     height="26"
+                     width="25"
+                     height="25"
                      fill="#00000"
                      viewBox="0 0 24 24"
                      className={styles.icon}

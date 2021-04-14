@@ -115,7 +115,7 @@ export default function VotePage({ voteId }) {
                         height="26px"
                         fill="#000000"
                         viewBox="0 0 24 24"
-                        style={{ marginRight: "15px" }}
+                        style={{ marginRight: "10px" }}
                         xmlns="http://www.w3.org/2000/svg"
                      >
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -189,7 +189,7 @@ export default function VotePage({ voteId }) {
                               height="26px"
                               fill="#000000"
                               viewBox="0 0 24 24"
-                              style={{ marginRight: "15px" }}
+                              style={{ marginRight: "10px" }}
                               xmlns="http://www.w3.org/2000/svg"
                            >
                               <path d="M0 0h24v24H0V0z" fill="none" />
@@ -207,7 +207,7 @@ export default function VotePage({ voteId }) {
                               height="26px"
                               fill="#000000"
                               viewBox="0 0 24 24"
-                              style={{ marginRight: "15px" }}
+                              style={{ marginRight: "10px" }}
                               xmlns="http://www.w3.org/2000/svg"
                            >
                               <path d="M0 0h24v24H0V0z" fill="none" />
@@ -228,7 +228,7 @@ export default function VotePage({ voteId }) {
                            height="26px"
                            fill="#000000"
                            viewBox="0 0 24 24"
-                           style={{ marginRight: "15px" }}
+                           style={{ marginRight: "12px" }}
                            xmlns="http://www.w3.org/2000/svg"
                         >
                            <path d="M0 0h24v24H0z" fill="none" />
