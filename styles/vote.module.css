@@ -113,11 +113,11 @@
 .vote__show_details {
    padding: 8px;
    outline: none;
+   display: flex;
    color: #493434;
    cursor: pointer;
-   display: flex;
-   justify-content: flex-start;
    align-items: center;
+   justify-content: flex-start;
 }
 
 .vote__desc_details {
@@ -189,8 +189,11 @@
    .vote__date,
    .vote__vote_by,
    .vote__desc_details {
-      line-height: 28px;
       font-size: calc(0.9rem + 1px);
+   }
+
+   .vote__desc_details {
+      line-height: 28px;
    }
 
    .home__link,
