@@ -118,7 +118,8 @@
    box-shadow: 7px 7px 1px 1px #0678fb;
 }
 
-.footer__link {
+.footer__link,
+.footer__usage {
    padding: 16px;
    outline: none;
    display: flex;
@@ -136,6 +137,7 @@
 }
 
 .footer__link:focus,
+.footer__usage:focus,
 .header_button__join:focus,
 .header_button__create:focus {
    box-shadow: 3px 3px 1px 1px #0678fb;
@@ -148,6 +150,7 @@
 
 @media screen and (max-width: 452px) {
    .footer__link,
+   .footer__usage,
    .header_button__join,
    .header_button__create {
       flex-direction: column;
@@ -159,15 +162,20 @@
    }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 690px) {
    .footer {
       gap: 37px;
       align-items: flex-end;
       flex-direction: column;
    }
 
+   .footer__link {
+      order: 1;
+      margin-block: 6px;
+   }
+
    .footer__desc {
-      margin-bottom: 13px;
+      order: 2;
    }
 }
 
@@ -194,6 +202,12 @@
    .footer {
       margin-top: 3.3rem;
       justify-content: space-between;
+   }
+}
+
+@media screen and (min-width: 800px) {
+   .header_buttons {
+      gap: 80px;
    }
 }
 

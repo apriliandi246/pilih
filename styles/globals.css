@@ -7,15 +7,15 @@
 }
 
 ::-webkit-scrollbar {
-   width: 13px;
+   width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-   box-shadow: inset 0 0 3px grey;
+   box-shadow: inset 0 0 4px grey;
 }
 
 ::-webkit-scrollbar-thumb {
-   background-color: #0678fb99;
+   background-color: #0678fb66;
 }
 
 ::-webkit-scrollbar-thumb:hover {
