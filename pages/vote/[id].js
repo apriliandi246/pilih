@@ -103,7 +103,7 @@ export default function VotePage({ voteId }) {
    return (
       <>
          <Head>
-            <title>Let's voting</title>
+            <title>Pilih | Voting</title>
          </Head>
 
          {isVoteExist === true && (
