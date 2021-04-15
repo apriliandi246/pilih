@@ -1,0 +1,128 @@
+.container {
+   width: 88%;
+   margin: 5rem auto 50px auto;
+}
+
+.home {
+   width: 150px;
+   text-align: center;
+   margin: 60px auto 0 auto;
+}
+
+.home__link {
+   padding: 14px;
+   outline: none;
+   display: flex;
+   color: #181111;
+   cursor: pointer;
+   font-size: 1rem;
+   border-radius: 3px;
+   align-items: center;
+   text-decoration: none;
+   justify-content: center;
+   border: 2px solid #0678fb;
+   transition: box-shadow ease-in 0.1s;
+   box-shadow: 6px 6px 1px 1px #0678fb;
+}
+
+.header {
+   width: 100%;
+   padding: 20px;
+   outline: none;
+   display: flex;
+   color: #181111;
+   font-size: 1rem;
+   text-align: center;
+   border-radius: 3px;
+   align-items: center;
+   justify-content: center;
+   border: 2px solid #0678fb;
+   margin: 100px auto 60px auto;
+   box-shadow: 8px 8px 1px 1px #0678fb;
+}
+
+.header {
+   font-size: 1.3rem;
+}
+
+.explanation_section {
+   font-size: 1rem;
+   line-height: 23px;
+   border-radius: 3px;
+   padding-block: 25px;
+   margin-bottom: 75px;
+   padding-inline: 20px;
+   letter-spacing: 0.5px;
+   border: 2px solid #0678fb;
+   box-shadow: 9px 9px 1px 1px #0678fb;
+}
+
+.explanation_section__title {
+   font-size: 1.3rem;
+   font-weight: bold;
+}
+
+.explanation_section__desc {
+   margin-block: 1.5rem;
+}
+
+.explanation_section__lists li {
+   margin-left: 20px;
+   list-style: square;
+   margin-bottom: 1.1rem;
+}
+
+.highlight {
+   color: #3a08c5;
+   font-weight: bold;
+}
+
+.explanation_section__lists li:last-child {
+   margin-bottom: 0;
+}
+
+.home__link:focus {
+   box-shadow: 3px 3px 1px 1px #0678fb;
+}
+
+@media screen and (min-width: 760px) {
+   .header h1,
+   .explanation_section__title {
+      font-size: calc(1.3rem - 0.1rem);
+   }
+
+   .explanation_section {
+      line-height: 28px;
+      font-size: calc(0.9rem + 1px);
+   }
+}
+
+@media screen and (min-width: 830px) {
+   .container {
+      width: 80%;
+   }
+}
+
+@media screen and (min-width: 980px) {
+   .container {
+      width: 70%;
+   }
+}
+
+@media screen and (min-width: 1170px) {
+   .container {
+      width: 60%;
+   }
+}
+
+@media screen and (min-width: 1400px) {
+   .container {
+      width: 50%;
+   }
+}
+
+@media screen and (min-width: 1700px) {
+   .container {
+      width: 40%;
+   }
+}
