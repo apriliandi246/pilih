@@ -1,3 +1,7 @@
-# 📢 PILIH
+<h1 align="center">📢 PILIH</h1>
 
-### [🚀🚀 Usage](https://pilih.vercel.app/usage)
+<br>
+
+## [🚀🚀 Live Demo](https://pilih.vercel.app/usage)
+
+## [🚀🚀 Usage for details](https://pilih.vercel.app/usage)
