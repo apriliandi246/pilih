@@ -198,7 +198,9 @@ export default function Home() {
                   Twitter
                </a>
 
-               <p className={styles.footer__desc}>Built with 💚 with Next.Js</p>
+               <p className={styles.footer__desc}>
+                  Built with jokes <span style={{ marginLeft: "6px" }}>🤪</span>
+               </p>
 
                <Link href="/usage">
                   <a className={styles.footer__usage}>
