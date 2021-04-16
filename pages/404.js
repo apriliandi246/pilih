@@ -6,7 +6,7 @@ export default function Custom404() {
    return (
       <>
          <Head>
-            <title>404</title>
+            <title>Pilih | 404</title>
          </Head>
 
          <div className={styles.container}>
