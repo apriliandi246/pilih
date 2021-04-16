@@ -85,10 +85,10 @@ export default function Home() {
          <div className={styles.container}>
             <div className={styles.header}>
                <h1 className={styles.header__title}>
-                  <span className={styles.header__emoji}>📢</span> PILIH
+                  <span style={{ marginRight: "-14px" }}>📢</span> PILIH
                </h1>
 
-               <div className={styles.header_buttons}>
+               <div className={styles.header__buttons}>
                   <button
                      disabled={isSubmit === true}
                      onClick={() => chooseForm("create")}
