@@ -1,7 +1,12 @@
+.container {
+   width: 88%;
+   margin: 65px auto 40px auto;
+}
+
 .home {
    width: 150px;
    text-align: center;
-   margin: 60px auto 0 auto;
+   margin: 60px auto 60px auto;
 }
 
 .home__link {
@@ -20,11 +25,6 @@
    box-shadow: 6px 6px 1px 1px #0678fb;
 }
 
-.container {
-   width: 88%;
-   margin: 65px auto 40px auto;
-}
-
 .header {
    width: 100%;
    padding: 20px;
@@ -35,7 +35,7 @@
    text-align: center;
    border-radius: 3px;
    align-items: center;
-   margin-bottom: 70px;
+   margin-bottom: 68px;
    justify-content: center;
    border: 2px solid #0678fb;
    box-shadow: 8px 8px 1px 1px #0678fb;
@@ -49,9 +49,8 @@
    font-size: 1rem;
    line-height: 23px;
    border-radius: 3px;
-   padding-block: 25px;
+   padding: 25px 20px;
    margin-bottom: 60px;
-   padding-inline: 20px;
    letter-spacing: 0.5px;
    border: 2px solid #0678fb;
    box-shadow: 9px 9px 1px 1px #0678fb;
@@ -63,7 +62,7 @@
 }
 
 .explanation_section__desc {
-   margin-block: 1.5rem;
+   margin: 1.5rem 0;
 }
 
 .explanation_section__lists li {

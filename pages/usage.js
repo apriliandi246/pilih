@@ -52,26 +52,26 @@ export default function Usage() {
             <meta property="twitter:site" content="@calon_jenazah__" />
          </Head>
 
-         <div className={styles.home}>
-            <Link href="/">
-               <a className={styles.home__link}>
-                  <svg
-                     width="26px"
-                     height="26px"
-                     fill="#000000"
-                     viewBox="0 0 24 24"
-                     style={{ marginRight: "10px" }}
-                     xmlns="http://www.w3.org/2000/svg"
-                  >
-                     <path d="M0 0h24v24H0z" fill="none" />
-                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                  </svg>
-                  Home
-               </a>
-            </Link>
-         </div>
-
          <div className={styles.container}>
+            <div className={styles.home}>
+               <Link href="/">
+                  <a className={styles.home__link}>
+                     <svg
+                        width="26px"
+                        height="26px"
+                        fill="#000000"
+                        viewBox="0 0 24 24"
+                        style={{ marginRight: "10px" }}
+                        xmlns="http://www.w3.org/2000/svg"
+                     >
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                     </svg>
+                     Home
+                  </a>
+               </Link>
+            </div>
+
             <div className={styles.header}>
                <svg
                   width="30px"

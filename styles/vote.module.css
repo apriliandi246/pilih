@@ -28,10 +28,10 @@
 
 .vote__title {
    color: #181111;
+   padding: 20px 0;
    font-size: 1.3rem;
    text-align: center;
    border-radius: 3px;
-   padding-block: 20px;
    margin-bottom: 4rem;
    border: 2px solid #0678fb;
    box-shadow: 8px 8px 1px 1px #0678fb;
@@ -103,8 +103,7 @@
    color: #181111;
    margin-top: 4rem;
    border-radius: 3px;
-   padding-block: 10px;
-   padding-inline: 15px;
+   padding: 10px 15px;
    border: 2px solid #d3b896;
    border: 2px solid #0678fb;
    box-shadow: 8px 8px 1px 1px #0678fb;
@@ -182,7 +181,7 @@
 
 @media screen and (min-width: 760px) {
    .vote__title {
-      padding-block: 25px;
+      padding: 25px 0;
       font-size: calc(1.3rem - 0.1rem);
    }
 
@@ -190,6 +189,10 @@
    .vote__vote_by,
    .vote__desc_details {
       font-size: calc(0.9rem + 1px);
+   }
+
+   .vote__details {
+      padding: 15px 20px;
    }
 
    .vote__desc_details {

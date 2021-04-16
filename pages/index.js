@@ -88,7 +88,7 @@ export default function Home() {
                   <span style={{ marginRight: "-14px" }}>📢</span> PILIH
                </h1>
 
-               <div className={styles.header__buttons}>
+               <div className={styles.header_buttons}>
                   <button
                      disabled={isSubmit === true}
                      onClick={() => chooseForm("create")}
