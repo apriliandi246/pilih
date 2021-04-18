@@ -13,7 +13,7 @@ export default function VoteInput({ isSubmit, onSubmit }) {
       event.preventDefault();
       onSubmit(true);
 
-      const unsubscribe = fire
+      fire
          .firestore()
          .collection("votes")
          .doc(idVote.trim())
@@ -31,8 +31,6 @@ export default function VoteInput({ isSubmit, onSubmit }) {
          .catch((err) => {
             throw new Error(err.message);
          });
-
-      return () => unsubscribe();
    }
 
    return (

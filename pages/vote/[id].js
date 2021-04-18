@@ -51,7 +51,9 @@ export default function VotePage({ voteId }) {
             }, 300);
          });
 
-      return () => unsubscribe();
+      return () => {
+         unsubscribe();
+      };
    }, []);
 
    useEffect(() => {
