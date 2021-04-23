@@ -1,5 +1,3 @@
-"use strict";
-
 export default class Time {
    constructor(date) {
       this.now = new Date();
@@ -41,6 +39,6 @@ export default class Time {
             : `${this.minute} minutes ago`;
       }
 
-      return `${Math.floor(this.difference)} seconds ago`;
+      return "Just now";
    }
 }
