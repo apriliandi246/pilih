@@ -8,6 +8,14 @@ Web application for creating vote that compares to two subjects/objects.
 
 <h3 align="center">. . .</h3>
 
+### 🚀 Demo
+
+[🔗 Demo](https://pilih.vercel.app/)
+
+[🔗 Read more](https://pilih.vercel.app/usage)
+
+<h3 align="center">. . .</h3>
+
 ### 🧰 Tech Stack
 
 [<img alt="html" src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white" />](https://developer.mozilla.org/en-US/docs/Web/HTML) — 
